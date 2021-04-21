@@ -19,5 +19,10 @@ function addBookToLibrary() {
 };
 
 function displayBooks(arr) {
-    console.table(myLibrary);
+    let shelf = document.getElementById('library-shelf');
+    arr.forEach(book => {
+        let bookCard = document.createElement('div');
+        bookCard.innerHtml = "A new Book!";
+        shelf.appendChild(bookCard);
+    });
 };
