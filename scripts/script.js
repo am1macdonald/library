@@ -1,9 +1,15 @@
 let myLibrary = [{
     author: "King, Stephen", 
-    title: "The Stand",
+    title: "Stand, The",
     pages: 1000,
     read: true,
     rating: 2
+}, {
+    author: "Martin, George",
+    title: "Hedge Knight, The",
+    pages: 250,
+    read: false,
+    rating: 3
 }
 ];
 function Book(){
@@ -23,8 +29,18 @@ function displayBooks(arr) {
     let bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     arr.forEach(book => {
+        let list = document.createElement('ul');
         let clone = bookCard.cloneNode();
-        clone.innerHtml = book.author;
+        for (let thing in book){
+            let item = document.createElement('li');
+            if (thing === 'read') {
+                book[thing] === true ? item.innerHTML = 'Read' : item.innerHTML = 'Not read';
+            } else {                
+                item.innerHTML = book[thing];
+            };
+            console.log(book[thing]);
+            clone.appendChild(item);
+        }
         shelf.appendChild(clone);
     });
 };
