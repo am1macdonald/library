@@ -1,0 +1,15 @@
+#library-shelf{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.book-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-color: black;
+    width: 100px;
+    height: 100px;
+}

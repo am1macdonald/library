@@ -20,9 +20,11 @@ function addBookToLibrary() {
 
 function displayBooks(arr) {
     let shelf = document.getElementById('library-shelf');
+    let bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
     arr.forEach(book => {
-        let bookCard = document.createElement('div');
-        bookCard.innerHtml = "A new Book!";
-        shelf.appendChild(bookCard);
+        let clone = bookCard.cloneNode;
+        clone.innerHtml = book.author;
+        shelf.appendChild(clone);
     });
 };
