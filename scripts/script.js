@@ -23,7 +23,7 @@ function displayBooks(arr) {
     let bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     arr.forEach(book => {
-        let clone = bookCard.cloneNode;
+        let clone = bookCard.cloneNode();
         clone.innerHtml = book.author;
         shelf.appendChild(clone);
     });
