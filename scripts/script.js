@@ -12,15 +12,14 @@ let myLibrary = [{
     rating: 3
 }
 ];
-function Book(){
+function Book(author, title, pages, read, rating){
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.read = read;
     this.rating = rating;
 };
-
-function addBookToLibrary() {
+function addBookToLibrary(author) {
 
 };
 
