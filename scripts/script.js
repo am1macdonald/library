@@ -19,17 +19,20 @@ function Book(author, title, pages, read, rating){
     this.read = read;
     this.rating = rating;
 };
-function addBookToLibrary(author) {
+function addBookToLibrary() {
 
 };
 
 function displayBooks(arr) {
+    let removeButton = document.createElement('BUTTON');
+    removeButton.classList.add('remove-from');
     let shelf = document.getElementById('library-shelf');
     let bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     arr.forEach(book => {
         let list = document.createElement('ul');
         let clone = bookCard.cloneNode();
+        let newButton = removeButton.cloneNode();
         for (let thing in book){
             let item = document.createElement('li');
             if (thing === 'read') {
@@ -39,9 +42,9 @@ function displayBooks(arr) {
             };
             console.log(book[thing]);
             clone.appendChild(item);
+            clone.appendChild(newButton);
         }
         shelf.appendChild(clone);
     });
 };
-
 displayBooks(myLibrary);
