@@ -12,15 +12,40 @@
         <main id=background>
             <h1>The Stacks</h1>
             <nav>
-
+                <button id="adder">Add a Book!</button>
             </nav>
-            <div id="library-shelf">
-
+            <div id="library-shelf">  
             </div>
             <script src="scripts/script.js"></script>
         </main>
         <div id="popup">
-
+            <form id="book-input">
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author">
+                <label for="book-name">Title:</label>
+                <input type="text" name="book-name" id="book-name">
+                <label for="page-count">Pages:</label>
+                <input type="text" name="page-count" id="page-count">
+                <div id="read-div">
+                    <label for="read">Read</label>
+                    <input type="radio" name="did-you-read" id="read">
+                    <label for="not-read">Not Read</label>
+                    <input type="radio" name="did-you-read" id=not-read">
+                </div>
+                <div id="rating-div">
+                    <label for="1">1</label>
+                    <input type="radio" name="rating" id="1">
+                    <label for="2">2</label>
+                    <input type="radio" name="rating" id="2">
+                    <label for="3">3</label>
+                    <input type="radio" name="rating" id="3">
+                    <label for="4">4</label>
+                    <input type="radio" name="rating" id="4">
+                    <label for="5">5</label>
+                    <input type="radio" name="rating" id="5">
+                </div>
+                <input type="submit" value="submit">
+            </form>
         </div>
     </body>
 </html>

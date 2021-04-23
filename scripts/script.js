@@ -43,3 +43,5 @@ function displayBooks(arr) {
         shelf.appendChild(clone);
     });
 };
+
+displayBooks(myLibrary);
