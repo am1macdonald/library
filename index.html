@@ -10,8 +10,8 @@
     </head>
     <body>
         <main id=background>
-            <h1>The Stacks</h1>
-            <nav>
+            <nav id="navbar">
+                <h1>The Stacks</h1>
                 <button id="adder">NEW BOOK</button>
             </nav>
             <div id="library-shelf">  
@@ -32,7 +32,10 @@
                     <label for="not-read">Not Read</label>
                     <input type="radio" name="did-you-read" id=not-read">
                 </div>
+                <h3>Rating:</h3>
                 <div id="rating-div">
+                    
+
                     <label for="1">1</label>
                     <input type="radio" name="rating" id="1">
                     <label for="2">2</label>
@@ -44,7 +47,7 @@
                     <label for="5">5</label>
                     <input type="radio" name="rating" id="5">
                 </div>
-                <input type="submit" value="submit">
+                <input type="button" value="submit">
             </form>
         </div>
     </body>
