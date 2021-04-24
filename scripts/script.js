@@ -33,17 +33,19 @@ function displayBooks(arr) {
         let list = document.createElement('ul');
         let clone = bookCard.cloneNode();
         let newButton = removeButton.cloneNode();
-        for (let thing in book){
-            let item = document.createElement('li');
-            if (thing === 'read') {
-                book[thing] === true ? item.innerHTML = 'Read' : item.innerHTML = 'Not read';
+        newButton.innerHTML = "REMOVE";
+        for (let metaData in book){
+            let listItem = document.createElement('li');
+            if (metaData === 'read') {
+                book[metaData] === true ? listItem.innerHTML = 'Read' : listItem.innerHTML = 'Not read';
             } else {                
-                item.innerHTML = book[thing];
+                listItem.innerHTML = book[metaData];
             };
-            console.log(book[thing]);
-            clone.appendChild(item);
-            clone.appendChild(newButton);
-        }
+            console.log(book[metaData]);
+            list.appendChild(listItem); 
+        };
+        clone.appendChild(list);
+        clone.appendChild(newButton);
         shelf.appendChild(clone);
     });
 };
