@@ -20,6 +20,11 @@ function Book(author, title, pages, read, rating){
     this.rating = rating;
 };
 function addBookToLibrary() {
+    let addButton = document.getElementById('adder');
+    let newBookForm = document.getElementById('popup');
+    addButton.addEventListener('click', even => {
+        newBookForm.stlye.display = "flex";
+    });
 
 };
 
