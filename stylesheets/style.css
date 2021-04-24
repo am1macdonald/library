@@ -47,22 +47,24 @@ h1 {
 #library-shelf{
     padding: 10%;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
     background-color: violet;
 }
 
 .book-card{
     padding: 1rem;
 
+    flex: 1;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 
     background-color: cyan;
-    min-width: 1rem;
-    width: 25%;
+    min-width: 100px;
+    max-width: 308px;
     height: auto;
     border: dashed 2px black;
 
