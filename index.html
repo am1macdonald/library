@@ -16,39 +16,43 @@
             </nav>
             <div id="library-shelf">  
             </div>
-            <script src="scripts/script.js"></script>
         </main>
         <div id="popup">
-            <form id="book-input">
+            <h3 id="popup-heading">Add a Book</h3>
+            <form id="book-input">                
                 <label for="author">Author:</label>
-                <input type="text" name="author" id="author">
+                <input type="text" name="author" id="author"/>
                 <label for="book-name">Title:</label>
-                <input type="text" name="book-name" id="book-name">
+                <input type="text" name="book-name" id="book-name"/>
                 <label for="page-count">Pages:</label>
-                <input type="text" name="page-count" id="page-count">
+                <input type="text" name="page-count" id="page-count"/>
                 <div id="read-div">
                     <label for="read">Read</label>
-                    <input type="radio" name="did-you-read" id="read">
+                    <input type="radio" name="did-you-read" id="read"/>
                     <label for="not-read">Not Read</label>
-                    <input type="radio" name="did-you-read" id=not-read">
+                    <input type="radio" name="did-you-read" id="not-read"/>
                 </div>
                 <h3>Rating:</h3>
                 <div id="rating-div">
                     
 
                     <label for="1">1</label>
-                    <input type="radio" name="rating" id="1">
+                    <input type="radio" name="rating" id="1"/>
                     <label for="2">2</label>
-                    <input type="radio" name="rating" id="2">
+                    <input type="radio" name="rating" id="2"/>
                     <label for="3">3</label>
-                    <input type="radio" name="rating" id="3">
+                    <input type="radio" name="rating" id="3"/>
                     <label for="4">4</label>
-                    <input type="radio" name="rating" id="4">
+                    <input type="radio" name="rating" id="4"/>
                     <label for="5">5</label>
-                    <input type="radio" name="rating" id="5">
+                    <input type="radio" name="rating" id="5"/>
                 </div>
-                <input type="button" value="submit">
+                <div id="popup-button-div">
+                    <input class="popup-buttons" type="button" value="Submit" id="submit"/>
+                    <input class="popup-buttons" type="button" value="Cancel" id="cancel"></input>
+                </div>
             </form>
         </div>
+        <script src="scripts/script.js"></script>
     </body>
 </html>

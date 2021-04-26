@@ -19,16 +19,32 @@ function Book(author, title, pages, read, rating){
     this.read = read;
     this.rating = rating;
 };
-function addBookToLibrary() {
-    let addButton = document.getElementById('adder');
-    let newBookForm = document.getElementById('popup');
-    addButton.addEventListener('click', even => {
-        newBookForm.stlye.display = "flex";
-    });
 
+let popup = document.getElementById('popup');
+
+let newBookButton = document.getElementById("adder");
+newBookButton.addEventListener('click', event => {
+    popup.style.display = 'flex';
+});
+
+let cancelButton = document.getElementById('cancel');
+cancelButton.addEventListener('click', event => {
+    popup.style.display = 'none';
+});
+
+let submitButton = document.getElementById('click', addBookToLibrary());
+
+function addBookToLibrary() {
+
+    
 };
 
+function removeBook() {
+    
+}
+
 function displayBooks(arr) {
+    let i = 0;
     let removeButton = document.createElement('BUTTON');
     removeButton.classList.add('remove-from');
     let shelf = document.getElementById('library-shelf');
@@ -37,8 +53,10 @@ function displayBooks(arr) {
     arr.forEach(book => {
         let list = document.createElement('ul');
         let clone = bookCard.cloneNode();
+        clone.setAttribute("data-index", i);
         let newButton = removeButton.cloneNode();
         newButton.innerHTML = "REMOVE";
+        newButton.addEventListener('click', removeBook());
         for (let metaData in book){
             let listItem = document.createElement('li');
             if (metaData === 'read') {
@@ -52,6 +70,7 @@ function displayBooks(arr) {
         clone.appendChild(list);
         clone.appendChild(newButton);
         shelf.appendChild(clone);
+        i++;
     });
 };
 displayBooks(myLibrary);
