@@ -39,18 +39,19 @@ function addBookToLibrary() {
     
 };
 
+let shelf = document.getElementById('library-shelf');
+
 function removeBook(book) {
     let bookIndex = myLibrary.indexOf(book);
-    console.log(book);
+    console.log(book, bookIndex);
     myLibrary.splice(bookIndex, 1);
-    document.querySelector(`[data-index="${bookIndex}"]`).remove();
+    shelf.childNodes[bookIndex].remove();
 };
 
 function displayBooks(arr) {
     let i = 0;
     let removeButton = document.createElement('BUTTON');
     removeButton.classList.add('remove-from');
-    let shelf = document.getElementById('library-shelf');
     let bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     arr.forEach(book => {
