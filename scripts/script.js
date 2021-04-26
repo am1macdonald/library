@@ -32,9 +32,24 @@ cancelButton.addEventListener('click', event => {
     popup.style.display = 'none';
 });
 
-let submitButton = document.getElementById('click', addBookToLibrary());
+let submitButton = document.getElementById('submit');
+submitButton.addEventListener('click', function() {
+    addBookToLibrary()
+});
 
 function addBookToLibrary() {
+
+    let author = document.getElementById("author").value;
+    let title = document.getElementById('book-name').value;
+    let pages = document.getElementById('page-count').value;
+    let read = function() {
+    };
+    let rating;
+
+    let newBook = new Book(author, title, pages, read, rating);
+    
+    myLibrary.push(newBook);
+    displayBooks(myLibrary);
 
     
 };
@@ -49,6 +64,7 @@ function removeBook(book) {
 };
 
 function displayBooks(arr) {
+    shelf.innerHTML = '';
     let i = 0;
     let removeButton = document.createElement('BUTTON');
     removeButton.classList.add('remove-from');
