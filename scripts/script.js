@@ -39,9 +39,12 @@ function addBookToLibrary() {
     
 };
 
-function removeBook() {
-    
-}
+function removeBook(book) {
+    let bookIndex = myLibrary.indexOf(book);
+    console.log(book);
+    myLibrary.splice(bookIndex, 1);
+    document.querySelector(`[data-index="${bookIndex}"]`).remove();
+};
 
 function displayBooks(arr) {
     let i = 0;
@@ -56,7 +59,8 @@ function displayBooks(arr) {
         clone.setAttribute("data-index", i);
         let newButton = removeButton.cloneNode();
         newButton.innerHTML = "REMOVE";
-        newButton.addEventListener('click', removeBook());
+        newButton.addEventListener('click', function(){
+            removeBook(book)});
         for (let metaData in book){
             let listItem = document.createElement('li');
             if (metaData === 'read') {
