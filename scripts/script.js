@@ -1,12 +1,12 @@
 let myLibrary = [{
-    author: "King, Stephen", 
-    title: "Stand, The",
+    author: "Stephen King", 
+    title: "The Stand",
     pages: 1000,
     read: true,
     rating: 2
 }, {
-    author: "Martin, George",
-    title: "Hedge Knight, The",
+    author: "George Martin",
+    title: "The Hedge Knight",
     pages: 250,
     read: false,
     rating: 3
@@ -61,11 +61,12 @@ function displayBooks(arr) {
     shelf.innerHTML = '';
     let i = 0;
     let removeButton = document.createElement('BUTTON');
-    removeButton.classList.add('remove-from', 'custom-font', 'book-card-button');
+    removeButton.classList.add('remove-from', 'custom-font', 'book-card-button', 'flex-center-column');
     let bookCard = document.createElement('div');
-    bookCard.classList.add('book-card');
+    bookCard.classList.add('book-card', 'flex-center-column');
     arr.forEach(book => {
         let list = document.createElement('ul');
+        list.classList.add('flex-center-column');
         let clone = bookCard.cloneNode();
         clone.setAttribute("data-index", i);
         let newButton = removeButton.cloneNode();
@@ -75,19 +76,28 @@ function displayBooks(arr) {
         for (let metaData in book){
             let listItem = document.createElement('li');
             switch (metaData) {
+                case 'title':
+                    listItem.setAttribute("id", "book-title");
+                    listItem.innerHTML = book[metaData];
+                    list.prepend(listItem);
+                    break;
+                case 'author':
+                    listItem.innerHTML = book[metaData];
+                    list.appendChild(listItem);
+                    break;
                 case 'read':
-                    book[metaData] === true ? listItem.innerHTML = 'Read' : listItem.innerHTML = 'Not read';
+                    book[metaData] === 'read' ? listItem.innerHTML = 'Read' : listItem.innerHTML = 'Not read';
+                    list.appendChild(listItem); 
                     break;
                 case 'pages':
                     listItem.innerHTML = book[metaData] + ' pages';
+                    list.appendChild(listItem); 
                     break;
                 default:
-                    listItem.innerHTML = book[metaData];
+                     
                     break;
-
-            }
+            };
             console.log(book[metaData]);
-            list.appendChild(listItem); 
         };
         clone.appendChild(list);
         clone.appendChild(newButton);

@@ -3,9 +3,10 @@
     font-family: 'Work Sans', sans-serif;
 }
 body{
-    width: 100%;
-    height: 100%;
-    background-color: #faeee7;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(227,217,212);
+    background: linear-gradient(0deg, rgba(230,219,213,1) 0%, rgba(250,238,231,1) 20%, rgba(249,249,249,1) 100%);
     color: #33272a;
     font-family: 'Work Sans', sans-serif;
 }
@@ -19,7 +20,7 @@ nav{
     border-bottom: solid 2px black;
     padding: 0.5rem 1rem;
 
-    box-shadow: .1rem 0 2rem .1rem hsl(22, 66%, 54%);
+    box-shadow: .1rem 0 1rem .001rem rgb(156, 156, 156);
 }
 h1{
     font-size: 6vmin;
@@ -63,35 +64,65 @@ h1{
 
 }
 #library-shelf{
-    padding: 10%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    padding: 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 2vmin;
+    
 }
 .book-card{
     padding: 1rem;
-
-    flex: 1;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
-    background-color: #fffffe;
-    min-width: 100px;
-    max-width: 308px;
-    height: auto;
-    border: dashed 2px black;
+    background-color: #faeee7;
+    width: 100%;
+    height: 250px;
+    border: solid 2px black;
 
     list-style-position: inside;
+    transition: .2s;
+    box-shadow: .01rem .01rem 1rem .4rem rgb(207, 201, 197);
+}
+.book-card:hover{
+    transform: scale(105%);
+    box-shadow: 1rem 1rem 5rem .1rem rgb(207, 201, 197);
 }
 .book-card ul {
-    background-color: blue;
+    width: 100%;
+    display: flex;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+.book-card ul li{
+    margin: 0.5rem 0;
+}
+#book-title{
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+    width: 100%;
+    border-bottom: solid 2px black;
+    padding: 1%;
+    margin-bottom: 1%;
 }
 .book-card-button{
-
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    
+    width: auto;
     box-shadow: 0.1rem 0.2rem 0.9em 0.1rem hsl(30, 9%, 66%);
-
+}
+.book-card-button:hover{
+    transform: scale(98%);
+}
+.flex-center-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
