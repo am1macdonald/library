@@ -9,13 +9,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="stylesheets/reset.css"/>
         <link rel="stylesheet" href="stylesheets/style.css"/>
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     </head>
     <body class="custom-font">
         <main id=background>
             <nav id="navbar">
-                <h1>The Stacks</h1>
-                <button class="custom-font" id="adder">NEW BOOK</button>
+                <div id="logo-div">
+                    <i style="font-size: 10vmin;" class="fas fa-book-open"></i>
+                    <h1>The Stacks</h1>
+                </div>
+                <button class="custom-font custom-button" id="adder">NEW BOOK</button>
             </nav>
             <div id="library-shelf"></div>
         </main>
@@ -23,14 +26,14 @@
             <h3 id="popup-heading">Add a Book</h3>
             <form id="book-input">                
                 <label for="author">Author:</label>
-                <input type="text" name="author" id="author"/>
+                <input type="text" name="author" id="author" placeholder="author's name"/>
                 <label for="book-name">Title:</label>
-                <input type="text" name="book-name" id="book-name"/>
+                <input type="text" name="book-name" id="book-name" placeholder="title of book"/>
                 <label for="page-count">Pages:</label>
-                <input type="number" name="page-count" id="page-count"/>                
+                <input type="number" name="page-count" id="page-count" placeholder="0"/>                
                 <select name="read?" id="read-div">
-                    <option value="read">read</option>
-                    <option value="not-read">not-read</option>
+                    <option value="not-read"">read</option>
+                    <option value="read">not-read</option>
                 </select>
                 <h3>Rating:</h3>
                 <div id="rating-div">     

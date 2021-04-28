@@ -61,7 +61,7 @@ function displayBooks(arr) {
     shelf.innerHTML = '';
     let i = 0;
     let removeButton = document.createElement('BUTTON');
-    removeButton.classList.add('remove-from', 'custom-font', 'book-card-button', 'flex-center-column');
+    removeButton.classList.add('custom-button', 'custom-font', 'book-card-button', 'flex-center-column');
     let bookCard = document.createElement('div');
     bookCard.classList.add('book-card', 'flex-center-column');
     arr.forEach(book => {
@@ -93,8 +93,9 @@ function displayBooks(arr) {
                     listItem.innerHTML = book[metaData] + ' pages';
                     list.appendChild(listItem); 
                     break;
-                default:
-                     
+                case 'rating':
+                    listItem.innerHTML = 'Rating: ' + book[metaData] + ' / 5';
+                    list.appendChild(listItem);                     
                     break;
             };
             console.log(book[metaData]);
