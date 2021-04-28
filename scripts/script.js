@@ -36,8 +36,10 @@ submitButton.addEventListener('click', function() {
 function addBookToLibrary() {
     let author = document.getElementById("author").value;
     let title = document.getElementById('book-name').value;
-    let pages = document.getElementById('page-count').value;
-    let read = document.getElementById('read-div').value;    
+    let pages = parseInt(document.getElementById('page-count').value);
+    let readSelection = document.getElementById('read-div').value;
+    let read;
+    readSelection === 'true' ? read = true : read = false;  
     let rating;
     let ratingRadios = document.getElementsByName('rating');
     for (let i = 0; i < 5; i++){
@@ -88,12 +90,30 @@ function displayBooks(arr) {
                     list.appendChild(listItem);
                     break;
                 case 'read':
-                    book[metaData] === 'read' ? listItem.innerHTML = 'Read' : listItem.innerHTML = 'Not read';
+                    book[metaData] === true ? listItem.innerHTML = 'Read' : listItem.innerHTML = 'Not Read';
+                    listItem.classList.add('read-item');
+                    listItem.addEventListener('click', function(){
+                        console.log(this.parentNode.parentNode.getAttribute('data-index'));
+                        if(listItem.innerHTML === 'Read'){
+                            listItem.innerHTML = 'Not Read';
+                            myLibrary[this.parentNode.parentNode.getAttribute('data-index')]['read'] = false;
+                        } 
+                        else {
+                            listItem.innerHTML = 'Read';
+                            myLibrary[this.parentNode.parentNode.getAttribute('data-index')]['read'] = true;
+                        };
+                        saveLibrary();
+                    });
                     list.appendChild(listItem); 
                     break;
                 case 'pages':
-                    listItem.innerHTML = book[metaData] + ' pages';
-                    list.appendChild(listItem); 
+                    if(book[metaData] <= 10000) {
+                        listItem.innerHTML = book[metaData] + ' pages';
+                        list.appendChild(listItem); 
+                    } else {
+                        listItem.innerHTML = 'Too many pages!';
+                        list.appendChild(listItem); 
+                    };                        
                     break;
                 case 'rating':
                     listItem.innerHTML = 'Rating: ' + book[metaData] + ' / 5';
@@ -110,7 +130,6 @@ function displayBooks(arr) {
 };
 
 let clearButton = document.getElementById('clear-data');
-
 clearButton.addEventListener('click', function() {
     if (confirm("Erase your library?")){
         window.localStorage.clear();
@@ -118,7 +137,6 @@ clearButton.addEventListener('click', function() {
         location.reload();
     } else return;
 });
-
 function saveLibrary(){
     window.localStorage.setItem('library', JSON.stringify(myLibrary));
 };

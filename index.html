@@ -21,20 +21,20 @@
                 <button class="custom-font custom-button" id="adder">NEW BOOK</button>
             </nav>
             <div id="library-shelf"></div>
-            <button id="clear-data">Clear Data</button>
+            <button class="custom-button" id="clear-data">Clear Data</button>
         </main>
         <div class="flex-center-column" id="popup">
             <h3 id="popup-heading">Add a Book</h3>
             <form id="book-input">                
                 <label for="author">Author:</label>
-                <input type="text" name="author" id="author" placeholder="author's name"/>
+                <input type="text" name="author" id="author" placeholder="author's name" maxlength="30"/>
                 <label for="book-name">Title:</label>
-                <input type="text" name="book-name" id="book-name" placeholder="title of book"/>
+                <input type="text" name="book-name" id="book-name" placeholder="title of book" maxlength="30"/>
                 <label for="page-count">Pages:</label>
-                <input type="number" name="page-count" id="page-count" placeholder="0"/>                
+                <input type="number" name="page-count" id="page-count" placeholder="0" min="1" max="10000"/>                
                 <select name="read?" id="read-div">
-                    <option value="not-read">read</option>
-                    <option value="read">not-read</option>
+                    <option value="true">read</option>
+                    <option value="false">not-read</option>
                 </select>
                 <h3>Rating:</h3>
                 <div id="rating-div">     

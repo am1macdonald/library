@@ -128,6 +128,13 @@ h3{
     padding: 1%;
     margin-bottom: 1%;
 }
+.read-item{
+    border-bottom: solid 2px black;
+}
+.read-item:hover{
+    cursor: pointer;
+    transform: scale(105%);
+}
 .book-card-button{
     display: flex;
     justify-content: center;
@@ -147,6 +154,7 @@ h3{
     align-items: center;
 }
 .custom-button{
+    text-align: center;
     background-color: #ffd803;
     color: #272343; 
 
@@ -156,4 +164,13 @@ h3{
 
 
     font-weight: bolder;
+}
+#clear-data{
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+
 }
