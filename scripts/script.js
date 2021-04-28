@@ -109,6 +109,16 @@ function displayBooks(arr) {
     });
 };
 
+let clearButton = document.getElementById('clear-data');
+
+clearButton.addEventListener('click', function() {
+    if (confirm("Erase your library?")){
+        window.localStorage.clear();
+        displayBooks(myLibrary);
+        location.reload();
+    } else return;
+});
+
 function saveLibrary(){
     window.localStorage.setItem('library', JSON.stringify(myLibrary));
 };
