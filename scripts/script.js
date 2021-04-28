@@ -48,7 +48,8 @@ function addBookToLibrary() {
     };
     let newBook = new Book(author, title, pages, read, rating);    
     myLibrary.push(newBook);
-    displayBooks(myLibrary);    
+    displayBooks(myLibrary);
+    saveLibrary();   
 };
 let shelf = document.getElementById('library-shelf');
 function removeBook(book) {
@@ -56,6 +57,7 @@ function removeBook(book) {
     console.log(book, bookIndex);
     myLibrary.splice(bookIndex, 1);
     shelf.childNodes[bookIndex].remove();
+    saveLibrary();
 };
 function displayBooks(arr) {
     shelf.innerHTML = '';
@@ -106,4 +108,14 @@ function displayBooks(arr) {
         i++;
     });
 };
-displayBooks(myLibrary);
+
+function saveLibrary(){
+    window.localStorage.setItem('library', JSON.stringify(myLibrary));
+};
+function loadLibrary() {
+    myLibrary = JSON.parse(window.localStorage.getItem('library'));
+    displayBooks(myLibrary);
+};
+if (!window.localStorage.getItem('library')) {
+    displayBooks(myLibrary);
+} else loadLibrary();

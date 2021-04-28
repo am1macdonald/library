@@ -27,17 +27,17 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 h1{
     margin-left: 1rem;
-    font-size: 6vmin;
+    font-size: 2.5rem;
 }
 h3{
-    font-size: 4vmin;
+    font-size: 2rem;
 }
 #adder{
     font-size: 1rem;
+    border: solid 0.15rem grey;
 }
 #adder:hover{
     background-color: hsl(51, 100%, 71%);
@@ -138,6 +138,7 @@ h3{
 }
 .book-card-button:hover{
     transform: scale(98%);
+    background-color: hsl(51, 100%, 71%)
 }
 .flex-center-column{
     display: flex;
