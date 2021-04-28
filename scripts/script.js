@@ -37,7 +37,7 @@ function addBookToLibrary() {
     let author = document.getElementById("author").value;
     let title = document.getElementById('book-name').value;
     let pages = document.getElementById('page-count').value;
-    let read = document.getElementById('read').checked;    
+    let read = document.getElementById('read-div').value;    
     let rating;
     let ratingRadios = document.getElementsByName('rating');
     for (let i = 0; i < 5; i++){
@@ -61,7 +61,7 @@ function displayBooks(arr) {
     shelf.innerHTML = '';
     let i = 0;
     let removeButton = document.createElement('BUTTON');
-    removeButton.classList.add('remove-from');
+    removeButton.classList.add('remove-from', 'custom-font', 'book-card-button');
     let bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     arr.forEach(book => {
@@ -69,7 +69,7 @@ function displayBooks(arr) {
         let clone = bookCard.cloneNode();
         clone.setAttribute("data-index", i);
         let newButton = removeButton.cloneNode();
-        newButton.innerHTML = "REMOVE";
+        newButton.innerHTML = "Delete";
         newButton.addEventListener('click', function(){
             removeBook(book)});
         for (let metaData in book){

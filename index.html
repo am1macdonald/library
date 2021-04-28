@@ -5,14 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="ie-edge"/>
         <title>library</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="stylesheets/reset.css"/>
         <link rel="stylesheet" href="stylesheets/style.css"/>
+
     </head>
-    <body>
+    <body class="custom-font">
         <main id=background>
             <nav id="navbar">
                 <h1>The Stacks</h1>
-                <button id="adder">NEW BOOK</button>
+                <button class="custom-font" id="adder">NEW BOOK</button>
             </nav>
             <div id="library-shelf"></div>
         </main>
@@ -24,13 +27,12 @@
                 <label for="book-name">Title:</label>
                 <input type="text" name="book-name" id="book-name"/>
                 <label for="page-count">Pages:</label>
-                <input type="text" name="page-count" id="page-count"/>
-                <div id="read-div">
-                    <label for="read">Read</label>
-                    <input type="radio" name="did-you-read" id="read"/>
-                    <label for="not-read">Not Read</label>
-                    <input type="radio" name="did-you-read" id="not-read"/>
-                </div>
+                <input type="number" name="page-count" id="page-count"/>
+                
+                <select name="read?" id="read-div">
+                    <option value="read">read</option>
+                    <option value="not-read">not-read</option>
+                </select>
                 <h3>Rating:</h3>
                 <div id="rating-div">     
                     <label for="1">1</label>
