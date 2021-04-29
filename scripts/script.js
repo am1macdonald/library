@@ -1,16 +1,6 @@
-let myLibrary = [{
-    author: "Stephen King", 
-    title: "The Stand",
-    pages: 1000,
-    read: true,
-    rating: 2
-}, {
-    author: "George Martin",
-    title: "The Hedge Knight",
-    pages: 250,
-    read: false,
-    rating: 3
-}
+let myLibrary = [
+    new Book("Stephen King", "The Stand", 1000, true, 2),
+    new Book("George Martin", "The Hedge Knight", 250, false, 3)
 ];
 function Book(author, title, pages, read, rating){
     this.author = author;
@@ -19,19 +9,24 @@ function Book(author, title, pages, read, rating){
     this.read = read;
     this.rating = rating;
 };
-let background = document.getElementById('background');
-let popup = document.getElementById('popup');
-let newBookButton = document.getElementById("adder");
+Book.prototype.changeRead = function(){
+    this.read ? this.read = false : this.read = true;
+    console.log(this.read);
+    saveLibrary();
+};
+const background = document.getElementById('background');
+const popup = document.getElementById('popup');
+const newBookButton = document.getElementById("adder");
 newBookButton.addEventListener('click', event => {
     background.classList.add('blur');
     popup.style.display = 'flex';
 });
-let cancelButton = document.getElementById('cancel');
+const cancelButton = document.getElementById('cancel');
 cancelButton.addEventListener('click', event => {
     background.classList.remove('blur');
     popup.style.display = 'none';
 });
-let submitButton = document.getElementById('submit');
+const submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', function() {
     addBookToLibrary();
     background.classList.remove('blur');
@@ -55,14 +50,14 @@ function addBookToLibrary() {
     let newBook = new Book(author, title, pages, read, rating);    
     myLibrary.push(newBook);
     displayBooks(myLibrary);
-    saveLibrary();   
+    saveLibrary();
 };
-let shelf = document.getElementById('library-shelf');
+const shelf = document.getElementById('library-shelf');
 function removeBook(book) {
     let bookIndex = myLibrary.indexOf(book);
-    console.log(book, bookIndex);
     myLibrary.splice(bookIndex, 1);
     shelf.childNodes[bookIndex].remove();
+    displayBooks(myLibrary);
     saveLibrary();
 };
 function displayBooks(arr) {
@@ -97,18 +92,10 @@ function displayBooks(arr) {
                     book[metaData] === true ? listItem.innerHTML = 'Read' : listItem.innerHTML = 'Not Read';
                     listItem.classList.add('read-item');
                     listItem.addEventListener('click', function(){
-                        console.log(this.parentNode.parentNode.getAttribute('data-index'));
-                        if(listItem.innerHTML === 'Read'){
-                            listItem.innerHTML = 'Not Read';
-                            myLibrary[this.parentNode.parentNode.getAttribute('data-index')]['read'] = false;
-                        } 
-                        else {
-                            listItem.innerHTML = 'Read';
-                            myLibrary[this.parentNode.parentNode.getAttribute('data-index')]['read'] = true;
-                        };
-                        saveLibrary();
+                        console.log(myLibrary[this.parentNode.parentNode.getAttribute('data-index')].changeRead());
+                        listItem.innerHTML === 'Read' ? listItem.innerHTML = 'Not Read' : listItem.innerHTML = 'Read';
                     });
-                    list.appendChild(listItem); 
+                    list.appendChild(listItem);
                     break;
                 case 'pages':
                     if(book[metaData] <= 10000) {
@@ -132,8 +119,7 @@ function displayBooks(arr) {
         i++;
     });
 };
-
-let clearButton = document.getElementById('clear-data');
+const clearButton = document.getElementById('clear-data');
 clearButton.addEventListener('click', function() {
     if (confirm("Erase your library?")){
         window.localStorage.clear();
@@ -145,7 +131,9 @@ function saveLibrary(){
     window.localStorage.setItem('library', JSON.stringify(myLibrary));
 };
 function loadLibrary() {
-    myLibrary = JSON.parse(window.localStorage.getItem('library'));
+    myLibrary = JSON.parse(window.localStorage.getItem('library')).map(book => {
+        return new Book(book.author, book.title, book.pages, book.read, book.rating)
+    });
     displayBooks(myLibrary);
 };
 if (!window.localStorage.getItem('library')) {
