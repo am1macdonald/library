@@ -11,7 +11,6 @@ function Book(author, title, pages, read, rating){
 };
 Book.prototype.changeRead = function(){
     this.read ? this.read = false : this.read = true;
-    console.log(this.read);
     saveLibrary();
 };
 const background = document.getElementById('background');
@@ -92,7 +91,6 @@ function displayBooks(arr) {
                     book[metaData] === true ? listItem.innerHTML = 'Read' : listItem.innerHTML = 'Not Read';
                     listItem.classList.add('read-item');
                     listItem.addEventListener('click', function(){
-                        console.log(myLibrary[this.parentNode.parentNode.getAttribute('data-index')].changeRead());
                         listItem.innerHTML === 'Read' ? listItem.innerHTML = 'Not Read' : listItem.innerHTML = 'Read';
                     });
                     list.appendChild(listItem);
@@ -111,7 +109,6 @@ function displayBooks(arr) {
                     list.appendChild(listItem);                     
                     break;
             };
-            console.log(book[metaData]);
         };
         clone.appendChild(list);
         clone.appendChild(newButton);
