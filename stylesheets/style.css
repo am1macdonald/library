@@ -3,13 +3,20 @@
     color: #272343;
     font-family: 'Work Sans', sans-serif;
 }
+.blur{
+    filter: blur(0.2rem);
+}
+
+body::-webkit-scrollbar{display: none;}
 body{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-size: cover;
     background-color:#e3f6f5;
     color: #272343;
     font-family: 'Work Sans', sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 nav{
     background-color: #bae8e8;
@@ -32,8 +39,9 @@ h1{
     margin-left: 1rem;
     font-size: 2.5rem;
 }
-h3{
+#popup-heading{
     font-size: 2rem;
+    margin-bottom: 1rem;
 }
 #adder{
     font-size: 1rem;
@@ -68,12 +76,19 @@ h3{
     
     border-radius: 0.5rem;
 }
+.input-field{
+    font-size: 1rem;
+}
 #popup-button-div{
     display: flex;
     justify-content: space-around;  
 }
 .popup-buttons{
     width: 100%;
+}
+.popup-buttons:hover{    
+    transform: scale(98%);
+    background-color: hsl(51, 100%, 71%);
 }
 #book-input{
 
@@ -161,13 +176,10 @@ h3{
 .custom-button{
     text-align: center;
     background-color: #ffd803;
-    color: #272343; 
-
+    color: #272343;
     border: solid 1px grey;
     border-radius: 0.3em;
     padding: 0.5rem 1rem;
-
-
     font-weight: bolder;
 }
 #clear-data{

@@ -27,16 +27,17 @@
             <h3 id="popup-heading">Add a Book</h3>
             <form id="book-input">                
                 <label for="author">Author:</label>
-                <input type="text" name="author" id="author" placeholder="author's name" maxlength="30"/>
+                <input class="input-field" type="text" name="author" id="author" placeholder="author's name" maxlength="30"/>
                 <label for="book-name">Title:</label>
-                <input type="text" name="book-name" id="book-name" placeholder="title of book" maxlength="30"/>
+                <input class="input-field" type="text" name="book-name" id="book-name" placeholder="title of book" maxlength="30"/>
                 <label for="page-count">Pages:</label>
-                <input type="number" name="page-count" id="page-count" placeholder="0" min="1" max="10000"/>                
-                <select name="read?" id="read-div">
+                <input class="input-field" type="number" name="page-count" id="page-count" placeholder="0" min="1" max="10000"/>                
+                <label for="read-div">Read?</label>
+                <select class="input-field" name="read?" id="read-div">
                     <option value="true">read</option>
                     <option value="false">not-read</option>
                 </select>
-                <h3>Rating:</h3>
+                <label for="rating-div">Rating:</label>
                 <div id="rating-div">     
                     <label for="1">1</label>
                     <input type="radio" name="rating" id="1"/>
@@ -50,8 +51,8 @@
                     <input type="radio" name="rating" id="5"/>
                 </div>
                 <div id="popup-button-div">
-                    <input class="popup-buttons" type="button" value="Submit" id="submit"/>
-                    <input class="popup-buttons" type="button" value="Cancel" id="cancel"></input>
+                    <input class="custom-button popup-buttons" type="button" value="Submit" id="submit"/>
+                    <input class="custom-button popup-buttons" type="button" value="Cancel" id="cancel"></input>
                 </div>
             </form>
         </div>

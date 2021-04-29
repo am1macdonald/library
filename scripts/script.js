@@ -19,18 +19,22 @@ function Book(author, title, pages, read, rating){
     this.read = read;
     this.rating = rating;
 };
+let background = document.getElementById('background');
 let popup = document.getElementById('popup');
 let newBookButton = document.getElementById("adder");
 newBookButton.addEventListener('click', event => {
+    background.classList.add('blur');
     popup.style.display = 'flex';
 });
 let cancelButton = document.getElementById('cancel');
 cancelButton.addEventListener('click', event => {
+    background.classList.remove('blur');
     popup.style.display = 'none';
 });
 let submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', function() {
     addBookToLibrary();
+    background.classList.remove('blur');
     popup.style.display = 'none';
 });
 function addBookToLibrary() {
