@@ -91,6 +91,7 @@ function displayBooks(arr) {
                     book[metaData] === true ? listItem.innerHTML = 'Read' : listItem.innerHTML = 'Not Read';
                     listItem.classList.add('read-item');
                     listItem.addEventListener('click', function(){
+                        console.log(book.changeRead());
                         listItem.innerHTML === 'Read' ? listItem.innerHTML = 'Not Read' : listItem.innerHTML = 'Read';
                     });
                     list.appendChild(listItem);
