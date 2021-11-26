@@ -1,18 +1,20 @@
+class Book {    
+    constructor (author, title, pages, read, rating) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+        this.rating = rating;
+    }
+    changeRead() {
+        this.read ? this.read = false : this.read = true;
+        saveLibrary();
+    };
+};
 let myLibrary = [
     new Book("Stephen King", "The Stand", 1000, true, 2),
     new Book("George Martin", "The Hedge Knight", 250, false, 3)
 ];
-function Book(author, title, pages, read, rating){
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
-    this.rating = rating;
-};
-Book.prototype.changeRead = function(){
-    this.read ? this.read = false : this.read = true;
-    saveLibrary();
-};
 const background = document.getElementById('background');
 const popup = document.getElementById('popup');
 const newBookButton = document.getElementById("adder");
@@ -101,7 +103,7 @@ function displayBooks(arr) {
                         listItem.innerHTML = book[metaData] + ' pages';
                         list.appendChild(listItem); 
                     } else {
-                        listItem.innerHTML = 'Too many pages!';
+                        listItem.innerHTML = 'Error!';
                         list.appendChild(listItem); 
                     };                        
                     break;
