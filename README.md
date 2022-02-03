@@ -1,3 +1,17 @@
-Library Shelf Project for Project Odin!
+# "The Stacks" Book Library
+Thanks for checking out my library project called, "The Stacks"!
+## About
+This project was completed as part of the ["Odin Project"](https://www.theodinproject.com/) curriculum.
 
- - Goals for this project are to learn to use and manipulate arrays and objects.
+## Technologies
+-- Section Under Construction --
+### Tools
+-- Section Under Construction --
+### Packages / Dependencies
+-- Section Under Construction --
+## Design Patterns and Techniques
+-- Section Under Construction --
+## Challenges
+-- Section Under Construction --
+## Installation
+Clone the repository && Run `npm install`
