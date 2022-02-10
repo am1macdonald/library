@@ -27,20 +27,20 @@
             <h3 id="popup-heading">Add a Book</h3>
             <form id="book-input">                
                 <label for="author">Author:</label>
-                <input class="input-field" type="text" name="author" id="author" placeholder="author's name" maxlength="30"/>
+                <input class="input-field" type="text" name="author" id="author" placeholder="author's name" maxlength="30" required/>
                 <label for="book-name">Title:</label>
-                <input class="input-field" type="text" name="book-name" id="book-name" placeholder="title of book" maxlength="30"/>
+                <input class="input-field" type="text" name="book-name" id="book-name" placeholder="title of book" maxlength="30" required/>
                 <label for="page-count">Pages:</label>
-                <input class="input-field" type="number" name="page-count" id="page-count" placeholder="0" min="1" max="10000"/>                
+                <input class="input-field" type="number" name="page-count" id="page-count" placeholder="0" min="1" max="10000" required/>                
                 <label for="read-div">Read?</label>
                 <select class="input-field" name="read?" id="read-div">
-                    <option value="true">read</option>
-                    <option value="false">not-read</option>
+                    <option value="true" >read</option>
+                    <option value="false" selected="selected">not-read</option>
                 </select>
                 <label for="rating-div">Rating:</label>
                 <div id="rating-div">     
                     <label for="1">1</label>
-                    <input type="radio" name="rating" id="1"/>
+                    <input type="radio" name="rating" id="1" checked/>
                     <label for="2">2</label>
                     <input type="radio" name="rating" id="2"/>
                     <label for="3">3</label>
