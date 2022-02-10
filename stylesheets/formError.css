@@ -1,0 +1,26 @@
+input[type=text]:valid, input[type=number]:valid {
+  background-color: #e3fde6;
+  box-shadow: 0 0 4px green;
+}
+input[type=text]:invalid:not(:focus):not(:placeholder-shown), input[type=number]:invalid:not(:focus):not(:placeholder-shown) {
+  background-color: #ffe6e6;
+  box-shadow: 0 0 4px red;
+}
+input[type=text]:invalid:focus:not(:placeholder-shown) ~ .requirements, input[type=number]:invalid:focus:not(:placeholder-shown) ~ .requirements {
+  opacity: 1;
+}
+
+.requirements {
+  height: 1.2rem;
+  margin-bottom: 0.2rem;
+  transition: 0.28s;
+  overflow: hidden;
+  color: red;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  text-align: center;
+  font-style: italic;
+  opacity: 0;
+}
+
+/*# sourceMappingURL=formError.css.map */

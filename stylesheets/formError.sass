@@ -1,0 +1,26 @@
+input[type="text"], input[type="number"]
+    
+    &:valid
+      background-color: rgb(227, 253, 230)
+      box-shadow: 0 0 4px green
+
+    &:invalid:not(:focus):not(:placeholder-shown)
+      background-color: rgb(255, 230, 230)
+      box-shadow: 0 0 4px red
+
+    &:invalid:focus:not(:placeholder-shown)
+      & ~ .requirements
+        opacity: 1
+
+.requirements
+
+    height: 1.2rem
+    margin-bottom: 0.2rem
+    transition: 0.28s
+    overflow: hidden
+    color: red
+    font-size: 1rem
+    line-height: 1.2rem
+    text-align: center
+    font-style: italic
+    opacity: 0

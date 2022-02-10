@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="stylesheets/reset.css"/>
         <link rel="stylesheet" href="stylesheets/style.css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        <link rel="stylesheet" href="stylesheets/formError.css" />
     </head>
     <body class="custom-font">
         <main id=background>
@@ -25,18 +26,38 @@
         </main>
         <div class="flex-center-column" id="popup">
             <h3 id="popup-heading">Add a Book</h3>
-            <form id="book-input">                
+            <form id="book-input">
+              
+
+              <div class="flex-center">
                 <label for="author">Author:</label>
-                <input class="input-field" type="text" name="author" id="author" placeholder="author's name" maxlength="30" required/>
+                <input class="input-field" type="text" name="author" id="author" placeholder="author's name" minlength="1" maxlength="30" pattern="[a-zA-Z0-9\.\-]+( [a-zA-Z0-9\.\-]+)*" required/>
+                <div class="requirements">1-30 characters</div>
+              </div>
+
+              <div class="flex-center">
                 <label for="book-name">Title:</label>
-                <input class="input-field" type="text" name="book-name" id="book-name" placeholder="title of book" maxlength="30" required/>
+                <input class="input-field" type="text" name="book-name" id="book-name" placeholder="title of book" minlength="1"maxlength="30" pattern="[a-zA-Z0-9\.\-]+( [a-zA-Z0-9\.\-]+)*" required/>
+                <div class="requirements">1-30 characters</div>
+              </div>
+
+              <div class="flex-center">
                 <label for="page-count">Pages:</label>
-                <input class="input-field" type="number" name="page-count" id="page-count" placeholder="0" min="1" max="10000" required/>                
+                <input class="input-field" type="number" name="page-count" id="page-count" placeholder="1" min="1" max="10000" required/>
+                <div class="requirements">1-10000</div>
+              </div>
+
+
+              <div class="flex-center">
                 <label for="read-div">Read?</label>
                 <select class="input-field" name="read?" id="read-div">
                     <option value="true" >read</option>
                     <option value="false" selected="selected">not-read</option>
                 </select>
+                <div class="requirements"></div>
+              </div>
+
+              <div class="flex-center">
                 <label for="rating-div">Rating:</label>
                 <div id="rating-div">     
                     <label for="1">1</label>
@@ -50,12 +71,16 @@
                     <label for="5">5</label>
                     <input type="radio" name="rating" id="5"/>
                 </div>
-                <div id="popup-button-div">
-                    <input class="custom-button popup-buttons" type="button" value="Submit" id="submit"/>
-                    <input class="custom-button popup-buttons" type="button" value="Cancel" id="cancel"></input>
-                </div>
-            </form>
-        </div>
-        <script src="scripts/script.js"></script>
-    </body>
+                <div class="requirements"></div>
+              </div>
+
+
+          <div id="popup-button-div">
+              <input class="custom-button popup-buttons" type="button" value="submit" id="submit"/>
+              <input class="custom-button popup-buttons" type="button" value="cancel" id="cancel"></input>
+          </div>
+        </form>
+      </div>
+    <script src="scripts/script.js"></script>
+  </body>
 </html>
