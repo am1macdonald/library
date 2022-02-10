@@ -11,28 +11,39 @@ class Book {
         saveLibrary();
     };
 };
+
 let myLibrary = [
     new Book("Stephen King", "The Stand", 1000, true, 2),
     new Book("George Martin", "The Hedge Knight", 250, false, 3)
 ];
+
 const background = document.getElementById('background');
 const popup = document.getElementById('popup');
-const newBookButton = document.getElementById("adder");
+const newBookButton = document.getElementById('adder');
+const form = document.getElementById('book-input');
+
 newBookButton.addEventListener('click', event => {
     background.classList.add('blur');
     popup.style.display = 'flex';
 });
+
 const cancelButton = document.getElementById('cancel');
 cancelButton.addEventListener('click', event => {
     background.classList.remove('blur');
     popup.style.display = 'none';
 });
+
 const submitButton = document.getElementById('submit');
 submitButton.addEventListener('click', function() {
-    addBookToLibrary();
-    background.classList.remove('blur');
-    popup.style.display = 'none';
+    if (form.checkValidity() === true) {
+      addBookToLibrary();
+      background.classList.remove('blur');
+      popup.style.display = 'none';
+    } else {
+      console.log('something wrong!!!')
+    }
 });
+
 function addBookToLibrary() {
     let author = document.getElementById("author").value;
     let title = document.getElementById('book-name').value;
